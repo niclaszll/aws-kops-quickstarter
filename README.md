@@ -1,6 +1,6 @@
 # AWS kOps Quickstarter
 
-This repository provides a quick-start solution to manage Kubernetes clusters on AWS using kOps and the awscli. No local installation is required, all interaction is done via an interactive shell session in inside the Docker container.
+This repository provides a quick-start solution to manage Kubernetes clusters on AWS using kOps and the aws-cli. No local installation is required, all interaction is done via an interactive shell session inside the Docker container.
 
 ## Usage
 
