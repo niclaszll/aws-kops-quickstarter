@@ -1,10 +1,12 @@
-FROM python:3.7-alpine
+FROM debian:buster-slim
 
 # install dependencies
-RUN apk --no-cache add curl
+RUN apt-get update && apt-get install -y curl unzip
 
-# install aws-cli
-RUN pip install --no-cache-dir awscli
+# install aws-cli v2
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+  && unzip awscliv2.zip \
+  && ./aws/install
 
 # install latest kOps
 RUN curl -Lo kops https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
