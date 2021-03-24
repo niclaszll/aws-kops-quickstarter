@@ -13,4 +13,10 @@ RUN mv kops /usr/local/bin/kops
 
 WORKDIR /usr/src
 
-ENTRYPOINT [ "/bin/sh" ]
+# copy entrypoint shell script into image
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint
+
+# make entrypoint shell script executable
+RUN chmod +x /usr/local/bin/docker-entrypoint
+
+ENTRYPOINT ["docker-entrypoint"]
